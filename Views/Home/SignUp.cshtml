@@ -183,15 +183,15 @@
                                     var userName = $('#UserName').val();
 
                                     //alert('User Name ='+ userName);
-                                    $('#checking').show(1000).text("Checking...");
+                                    $('#checking').show().text("Checking...");
                                     $.getJSON("/Home/CheckUserName?UserName=" + userName, function (data) {
                                         $('#checking').hide();
                                         if (data) {
-                                            $('#result').text("User already exists.").show(2000);
+                                            $('#result').text("User already exists.").show();
 
                                         }
                                         else {
-                                            $('#result').text("UserName is available").show(2000);
+                                            $('#result').text("UserName is available").show();
                                         }
                                     });
 
