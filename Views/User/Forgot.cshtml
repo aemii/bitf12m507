@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Forgot";
+}
+
+@{
+    ViewBag.Title = "Forgot";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+@model OMC.Models.User
+
+
+<head>
+
+    <style>
+        body {
+            background-color: white;
+        }
+
+        h2 {
+            color: blue;
+        }
+
+        span {
+            color: red;
+        }
+
+        p {
+            color: white;
+        }
+    </style>
+
+
+    <title>Sign In</title>
+
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+
+    <link href="/Content/SignIn.css" rel="stylesheet" />
+
+    <script src="/Scripts/bootstrap.js"> </script>
+
+</head>
+
+
+
+<body>
+
+    <div class="row">
+
+        <div class="col-xs-4">
+
+
+        </div>
+
+        <div class="col-xs-4">
+
+
+            <center>
+
+                <h1 class="animated flipInY" style="margin-top: 30px; margin-left: 20px; margin-bottom: 30px; color: #FF0000; font-family: 'Comic Sans MS'; "><span class="glyphicon glyphicon-log-in"></span><p><b>Send Password <br> (Only for Gmail Users)</p></b></h1>
+
+            </center>
+
+
+            @using (Html.BeginForm("ForgotPassword", "User", FormMethod.Post, new { @class = "form-sigin" }))
+            {
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Username  </span>
+                    @Html.TextBoxFor(m => m.Username, null, new { @class = "form-control", @placeholder = "e.g ahmad_rafique", @required = "true" })
+
+                </div>
+
+                <br>
+
+                <!--   <div class="input-group">
+                       <span class="input-group-addon" id="basic-addon1">Password  </span>
+                       @Html.TextBoxFor(m => m.Password, null, new { @class = "form-control", @placeholder = "i.e Password of your registered email", @required = "true", @type = "password" })
+
+                   </div>
+
+                   <br> -->
+
+                <button type="submit" class="btn btn-default pull-right">Send Password</button>
+
+                if (ViewBag.Forgot != null)
+                {
+
+                    if (ViewBag.Forgot.Equals("Send"))
+                    {
+
+                        <h3 class="animated fadeInUp" style="margin-top: 30px; margin-left: 20px; margin-bottom: 30px; color: #ffffff; font-family: 'Comic Sans MS' ">Password has been sent to your email..</h3>
+
+                    }
+                    else if (ViewBag.Forgot.Equals("Invalid"))
+                    {
+                        <h3 class="animated fadeInUp" style="margin-top: 30px; margin-left: 20px; margin-bottom: 30px; color: #ffffff; font-family: 'Comic Sans MS' ">Invalid Username , Try Again !</h3>
+
+                    }
+                }
+
+            }
+
+
+        </div>
+
+        <div class="col-xs-6">
+
+
+        </div>
+
+
+    </div>
+
+
+    <br> <br>
+
+
+</body>
+
+
